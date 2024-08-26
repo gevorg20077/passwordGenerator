@@ -1,0 +1,12 @@
+<h1>Редактировать пароль</h1>
+<%= form_with model: @password, local: true do |form| %>
+  <div>
+    <%= form.label :value, 'Значение пароля' %>
+    <%= form.text_field :value %>
+  </div>
+  <div>
+    <%= form.submit 'Обновить пароль' %>
+  </div>
+<% end %>
+
+<%= link_to 'Назад', passwords_path %>

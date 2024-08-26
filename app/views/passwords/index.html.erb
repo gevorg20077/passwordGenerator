@@ -1,0 +1,28 @@
+<h2>Новый пароль</h2>
+<%= form_with model: @password, local: true do |form| %>
+  <div>
+    <%= form.submit 'Создать пароль' %>
+  </div>
+<% end %>
+
+<h2>Список паролей</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Значение</th>
+      <th>Действия</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @passwords.each do |password| %>
+      <tr>
+        <td><%= password.value %></td>
+        <td>
+          <%= link_to 'Показать', password_path(password) %>
+          <%= link_to 'Редактировать', edit_password_path(password) %>
+          <%= link_to 'Удалить', password_path(password), method: :delete, data: { confirm: 'Вы уверены?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
